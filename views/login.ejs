@@ -1,0 +1,31 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Login</h1>
+        <% if ( alerts.length > 0) { %>
+            <% alerts.forEach(function(alert) {  %> 
+                <h6> <%= alert.message  %> </h6>
+            <% }) %> 
+        <% } %>
+        <form method = "POST">
+            <h4>Email</h4>
+            <input type="text", name="email" required>
+
+            <h4>Password</h4>
+            <input type="password", name="password" required>
+
+            <br>
+            <input type="submit">
+            
+            <h2>Dont have account? Register here</h4>
+            <a href="/user/register">Register</a>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+</head>
+<body>
+    <h1>Dashboard</h1>
+    <h3><a href="/add_file">Upload file</a></h3>
+    <h3><a href="/user/logout">Logout</a></h3>
+
+    <% if (files.length > 0) { %>
+        <h2>Files</h2>
+                    <div>
+                        <table border>
+                            <thead>
+                                <tr>
+                                    <th>File Id</th>
+                                    <th>File name</th>
+                                    <th>Size(bytes)</th>
+                                    <th>Created At</th>
+                                    <th>Download</th>
+                                    <th>Delete</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% files.forEach((row, index) =>{  %> 
+                                    <tr> 
+                                        <td><%= index + 1 %> </td>
+                                        <td><%= row.file_name  %></td>
+                                        <td><%= row.size  %></td>
+                                        <td><%= row.created_at  %></td>
+                                        <td>
+                                            <a href="/download/<%= row.fileId  %>" > download </a>
+                                        </td>
+                                        <td>
+                                            <a href="/delete/<%= row.fileId  %>" > delete </a>
+                                        </td>
+                                    </tr>
+                                <% }) %>    
+                                                   
+                            </tbody>
+                        </table>
+                    </div>               
+    <% } %>                
+</body>
+</html>
